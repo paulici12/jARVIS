@@ -1,0 +1,53 @@
+﻿@model IEnumerable<jARVIS.Models.ShoppingListModel>
+
+@{
+    ViewBag.Title = "Shopping List";
+}
+
+<h2>Shopping List</h2>
+
+<p>bread crumbs</p>
+<p>add new item input - use to toggle on form. have dismis form input as well</p>
+<p>filters: search field, completed filter</p>
+<p>list of current items, with filters applied</p>
+
+
+
+
+<p>
+    @Html.ActionLink("Add", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Completed)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayTextFor(modelItem => item.Completed).ToString().ToLower()
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
