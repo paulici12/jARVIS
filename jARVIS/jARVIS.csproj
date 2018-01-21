@@ -153,7 +153,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ShoppingListModel.cs" />
+    <Compile Include="Migrations\201801161745071_InitialCreate.cs" />
+    <Compile Include="Migrations\201801161745071_InitialCreate.Designer.cs">
+      <DependentUpon>201801161745071_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801162209221_ChangedDBName.cs" />
+    <Compile Include="Migrations\201801162209221_ChangedDBName.Designer.cs">
+      <DependentUpon>201801162209221_ChangedDBName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ShoppingList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -168,6 +177,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\11scissors-jARVIS.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -212,6 +222,14 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201801161745071_InitialCreate.resx">
+      <DependentUpon>201801161745071_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801162209221_ChangedDBName.resx">
+      <DependentUpon>201801162209221_ChangedDBName.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

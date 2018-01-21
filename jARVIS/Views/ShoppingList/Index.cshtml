@@ -1,24 +1,19 @@
-﻿@model IEnumerable<jARVIS.Models.ShoppingListModel>
+﻿@model IEnumerable<jARVIS.Models.ShoppingList>
 
 @{
-    ViewBag.Title = "Shopping List";
+    ViewBag.Title = "Index";
 }
 
-<h2>Shopping List</h2>
-
-<p>bread crumbs</p>
-<p>add new item input - use to toggle on form. have dismis form input as well</p>
-<p>filters: search field, completed filter</p>
-<p>list of current items, with filters applied</p>
-
-
-
+<h3>Shopping List</h3>
 
 <p>
-    @Html.ActionLink("Add", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Timestamp)
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.ItemName)
         </th>
@@ -33,6 +28,9 @@
 
 @foreach (var item in Model) {
     <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Timestamp)
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.ItemName)
         </td>

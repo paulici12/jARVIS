@@ -27,12 +27,12 @@ namespace jARVIS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ShoppingListModel shoppingListModel = db.ShoppingList.Find(id);
-            if (shoppingListModel == null)
+            ShoppingList shoppingList = db.ShoppingList.Find(id);
+            if (shoppingList == null)
             {
                 return HttpNotFound();
             }
-            return View(shoppingListModel);
+            return View(shoppingList);
         }
 
         // GET: ShoppingList/Create
@@ -46,16 +46,16 @@ namespace jARVIS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Timestamp,ItemName,Amount,Description,Completed")] ShoppingListModel shoppingListModel)
+        public ActionResult Create([Bind(Include = "ID,Timestamp,ItemName,Amount,Description,Completed")] ShoppingList shoppingList)
         {
             if (ModelState.IsValid)
             {
-                db.ShoppingList.Add(shoppingListModel);
+                db.ShoppingList.Add(shoppingList);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(shoppingListModel);
+            return View(shoppingList);
         }
 
         // GET: ShoppingList/Edit/5
@@ -65,12 +65,12 @@ namespace jARVIS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ShoppingListModel shoppingListModel = db.ShoppingList.Find(id);
-            if (shoppingListModel == null)
+            ShoppingList shoppingList = db.ShoppingList.Find(id);
+            if (shoppingList == null)
             {
                 return HttpNotFound();
             }
-            return View(shoppingListModel);
+            return View(shoppingList);
         }
 
         // POST: ShoppingList/Edit/5
@@ -78,15 +78,15 @@ namespace jARVIS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Timestamp,ItemName,Amount,Description,Completed")] ShoppingListModel shoppingListModel)
+        public ActionResult Edit([Bind(Include = "ID,Timestamp,ItemName,Amount,Description,Completed")] ShoppingList shoppingList)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(shoppingListModel).State = EntityState.Modified;
+                db.Entry(shoppingList).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(shoppingListModel);
+            return View(shoppingList);
         }
 
         // GET: ShoppingList/Delete/5
@@ -96,12 +96,12 @@ namespace jARVIS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ShoppingListModel shoppingListModel = db.ShoppingList.Find(id);
-            if (shoppingListModel == null)
+            ShoppingList shoppingList = db.ShoppingList.Find(id);
+            if (shoppingList == null)
             {
                 return HttpNotFound();
             }
-            return View(shoppingListModel);
+            return View(shoppingList);
         }
 
         // POST: ShoppingList/Delete/5
@@ -109,8 +109,8 @@ namespace jARVIS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ShoppingListModel shoppingListModel = db.ShoppingList.Find(id);
-            db.ShoppingList.Remove(shoppingListModel);
+            ShoppingList shoppingList = db.ShoppingList.Find(id);
+            db.ShoppingList.Remove(shoppingList);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
